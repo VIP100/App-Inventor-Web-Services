@@ -9,15 +9,14 @@ var EditorState = {
 };
 
 google.load('picker', '1');
-//gapi.load('drive-share');
 
 angular.module('app', ['app.filters', 'app.services', 'app.directives'])
     .constant('saveInterval', 15000)
-    .constant('appId', [['1013437558455.apps.googleusercontent.com']])
+    .constant('appId', [['1013437558455.apps.googleusercontent.com']]) // Please replace this with your Application ID.
     .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-        .when('/edit/:id', {templateUrl:'Content/partials/editor.html', controller:EditorCtrl})
+        .when('/edit/:id', {
+            templateUrl: '/public/partials/editor.html',
+            controller: EditorCtrl})
         .otherwise({redirectTo:'/edit/'});
 }]);
-
-

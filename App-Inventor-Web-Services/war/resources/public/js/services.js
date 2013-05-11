@@ -15,13 +15,11 @@ module.factory('doc',
         };
         service.$watch('info',
             function (newValue, oldValue) {
-                service.dirty = true;
+                if (oldValue != null && newValue === oldValue) {
+                    service.dirty = true;
+                }
             },
             true);
-        service.$watch('info',
-            function() {
-                service.dirty = false;
-            });
         return service;
     });
 
